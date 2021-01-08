@@ -4,11 +4,11 @@ const signUpSuccess = function (response) {
   $('#message').text('Sign Up Successful! You may sign in now')
   $('form').trigger('reset')
 }
-
 const signUpFailure = function () {
   $('#message').text('Sign Up failed. Try again')
   $('form').trigger('reset')
 }
+
 const signInSuccess = function (response) {
   // "Store" the user (and the token)
   // Create a new key on the `store` object
