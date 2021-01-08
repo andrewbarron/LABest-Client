@@ -52,7 +52,6 @@ module.exports = {
       'git push origin gh-pages --force',
       'git clean -x -d --force --exclude=node_modules',
       'git checkout main'
-      'git checkout main'
     ].join(' && ')
   }
 }
