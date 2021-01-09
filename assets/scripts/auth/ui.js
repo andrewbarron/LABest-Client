@@ -4,6 +4,7 @@ const signUpSuccess = function (response) {
   $('#message').text('Sign Up Successful! You may sign in now')
   $('form').trigger('reset')
 }
+
 const signUpFailure = function () {
   $('#message').text('Sign Up failed. Try again')
   $('form').trigger('reset')
@@ -20,6 +21,7 @@ const signInSuccess = function (response) {
 }
 const signInFailure = function (data) {
   $('#message').text('Sign in failed. Let\'s try another password?')
+  $('form').trigger('reset')
 }
 
 const changePasswordSuccess = function (data) {
