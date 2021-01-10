@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Restaurant Tracker</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,40 +12,67 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>LA's Best</h1>
-      <p id="message"></p>
-      <div class="unauth">
+      <h1>LA's Best Restaurants</h1>
 
-        <form id="sign-up">
+      <p id="current-page"></p>
+      <p id="message"></p>
+
+      <div class="unauth">
+  <form id="sign-up">
   <input type="text" name="credentials[email]" placeholder="Please enter your email"/>
   <input type="password" name="credentials[password]" placeholder="Please enter password" />
   <input type="password" name="credentials[password_confirmation]" placeholder="Please confirm password" />
   <button class="btn btn-primary btn-lg"  type="submit">Sign Up</button>
   </form>
 
-      <form id="sign-in">
-              <h1>Welcome back!</h1>
-                <input
-                  placeholder="Enter your username!"
-                  type="text"
-                  name="credentials[email]"
-                />
-                <input
-                  placeholder="Enter your password!"
-                  type="password"
-                  name="credentials[password]"
-                />
-                <button class="btn btn-primary btn-lg" id="signInbtn" type="submit">Sign In</button>
-              </form>
+  <form id="sign-in">
+  <input placeholder="Enter your username!" type="text" name="credentials[email]"/>
+  <input placeholder="Enter your password!" type="password" name="credentials[password]"/>
+  <button class="btn btn-primary btn-lg" id="signInbtn" type="submit">Sign In</button>
+  </form>
       </div>
 
-      <div class="auth">
-        <form id="change-password">
-          <b>Old Password</b> <input placeholder="old password" type="password" name="passwords[old]">
-            <b>New Password</b><input placeholder="new password" type="password" name="passwords[new]">
-             <button type="submit">Submit</button>
+<div class="auth">
+
+<form id="change-password">
+  <b>Change your Password</b>
+  <input placeholder="Old Password" type="password" name="passwords[old]">
+  <input placeholder="New Password" type="password" name="passwords[new]">
+  <button type="submit">Submit</button>
 </form>
-   <button id="sign-out" type="submit">Sign Out</button>
+
+<button id="sign-out" type="submit">Sign Out</button>
+
+<form id="create-restaurant">
+<b>Create a Restaurant</b>
+<input placeholder="Name" type="text" name="restaurant[name]">
+<input placeholder="Cuisine Type" type="text" name="restaurant[cuisine]">
+<input placeholder="Location" type="text" name="restaurant[location]">
+<input placeholder="Price Range" type="text" name="restaurant[price]">
+<button type="submit">Submit</button>
+</form>
+
+<button id="index-restaurants" type="button">Show your Restaurants</button>
+
+<form id="show-restaurant">
+<b>Find a Restaurant</b> <input placeholder="Find A Restaurant" type="text" name="restaurant[_id]">
+<button type="submit">Submit</button>
+</form>
+
+  <form id="delete-restaurant">
+    <b>Delete a Restaurant</b> <input placeholder="Delete a Restaurant" type="text" name="restaurant[_id]">
+    <button type="submit">Submit</button>
+  </form>
+
+<form id="update-restaurant">
+  <b>Update a Restaurant</b> <input placeholder="Update by ID" type="text" name="restaurant[_id]">
+  <input placeholder="New Name" type="text" name="restaurant[name]">
+  <input placeholder="New Cuisine" type="text" name="restaurant[cuisine]">
+  <input placeholder="New Location" type="text" name="restaurant[location]">
+  <input placeholder="New Price Range" type="text" name="restaurant[price]">
+  <button type="submit">Submit</button>
+</form>
+
 </div>
     </body>
 </html>
