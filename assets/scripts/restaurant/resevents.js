@@ -22,6 +22,7 @@ const onShow = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
+  console.log(data)
   api.showOne(data)
     .then(ui.showSuccess)
     .catch(ui.error)

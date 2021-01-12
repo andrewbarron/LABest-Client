@@ -36,7 +36,7 @@ const indexSuccess = function (response) {
   const fragment = document.createDocumentFragment()
   $(allRestaurants).each(function (index, currentRes) {
     const li = document.createElement('li')
-    li.textContent = `Restaurant ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location}`
+    li.textContent = `Restaurant ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location}  Latest Review: ID: ${currentRes.reviews[0]._id} Description: ${currentRes.reviews[0].description} Favorite Dish: ${currentRes.reviews[0].favoriteDish} Price Range: ${currentRes.reviews[0].price} Value (1-10): ${currentRes.reviews[0].value}`
     fragment.appendChild(li)
   })
   list.appendChild(fragment)
@@ -59,7 +59,8 @@ const showSuccess = function (response) {
   const fragment = document.createDocumentFragment()
   $(resInfo).each(function (index, currentRes) {
     const li = document.createElement('li')
-    li.textContent = `ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location} Created by: ${currentRes.owner.email} Latest Review: ID: ${currentRes.reviews[0]._id} Description: ${currentRes.reviews[0].description} Favorite Dish: ${currentRes.reviews[0].favoriteDish} Price Range: ${currentRes.reviews[0].price} Value (1-10): ${currentRes.reviews[0].value} `
+    li.textContent = `ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location} Created by: ${currentRes.owner.email} `
+    //  Latest Review: ID: ${currentRes.reviews[0]._id} Description: ${currentRes.reviews[0].description} Favorite Dish: ${currentRes.reviews[0].favoriteDish} Price Range: ${currentRes.reviews[0].price} Value (1-10): ${currentRes.reviews[0].value}
     fragment.appendChild(li)
   })
   list.appendChild(fragment)
