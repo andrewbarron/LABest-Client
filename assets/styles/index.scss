@@ -1,6 +1,19 @@
 @import '~bootstrap/scss/bootstrap';
-
-h1 {
+h1, .container{
   display: flex;
   justify-content: center;
+}
+.contain {
+  display: table;
+  width: 100%
+}
+.left-half {
+  position: absolute;
+  left: 50px;
+  width: 40%;
+}
+.right-half {
+  position: absolute;
+  right: 50px;
+  width: 40%;
 }

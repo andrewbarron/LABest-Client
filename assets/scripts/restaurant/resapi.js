@@ -16,10 +16,7 @@ const createRestaurant = function (data) {
 const indexAll = function () {
   return $.ajax({
     url: config.apiUrl + '/restaurants',
-    method: 'GET',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    }
+    method: 'GET'
   })
 }
 

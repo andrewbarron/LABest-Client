@@ -31,12 +31,14 @@ const signInFailure = function (data) {
 const changePasswordSuccess = function (data) {
   $('#message').empty()
   $('#current-page').text('Password Change Successful')
+  $('#change-password').hide()
   $('form').trigger('reset')
 }
 
 const changePasswordFailure = function (data) {
   $('#message').empty()
   $('#current-page').text('Password Change didn\'t work')
+  $('#change-password').hide()
   $('form').trigger('reset')
 }
 const signOutSuccess = function () {
