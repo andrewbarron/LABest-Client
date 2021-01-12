@@ -12,25 +12,26 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>LA's Best Restaurants</h1>
+<h1>LA's Best Restaurants</h1>
 
-      <p id="current-page"></p>
-      <p id="message"></p>
+<p id="current-page"></p>
+<p id="message"></p>
 
-      <div class="unauth">
-  <form id="sign-up">
+<div class="unauth">
+<form id="sign-up">
   <input type="text" name="credentials[email]" placeholder="Please enter your email"/>
   <input type="password" name="credentials[password]" placeholder="Please enter password" />
   <input type="password" name="credentials[password_confirmation]" placeholder="Please confirm password" />
   <button class="btn btn-primary btn-lg"  type="submit">Sign Up</button>
-  </form>
+</form>
 
-  <form id="sign-in">
+<form id="sign-in">
   <input placeholder="Enter your username!" type="text" name="credentials[email]"/>
   <input placeholder="Enter your password!" type="password" name="credentials[password]"/>
   <button class="btn btn-primary btn-lg" id="signInbtn" type="submit">Sign In</button>
-  </form>
-      </div>
+</form>
+
+</div>
 
 <div class="auth">
 
@@ -38,39 +39,68 @@
   <b>Change your Password</b>
   <input placeholder="Old Password" type="password" name="passwords[old]">
   <input placeholder="New Password" type="password" name="passwords[new]">
-  <button type="submit">Submit</button>
+  <button class="btn btn-primary btn-lg"  type="submit">Change Password</button>
 </form>
 
-<button id="sign-out" type="submit">Sign Out</button>
+<button id="sign-out" class="btn btn-primary btn-lg"  type="submit">Sign Out</button>
 
 <form id="create-restaurant">
-<b>Create a Restaurant</b>
-<input placeholder="Name" type="text" name="restaurant[name]">
-<input placeholder="Cuisine Type" type="text" name="restaurant[cuisine]">
-<input placeholder="Location" type="text" name="restaurant[location]">
-<input placeholder="Price Range" type="text" name="restaurant[price]">
-<button type="submit">Submit</button>
+  <b>Create a Restaurant</b>
+  <input placeholder="Name" type="text" name="restaurant[name]">
+  <input placeholder="Cuisine Type" type="text" name="restaurant[cuisine]">
+  <input placeholder="Location" type="text" name="restaurant[location]">
+  <button class="btn btn-primary btn-lg"  type="submit">Create Restaurant</button>
 </form>
 
-<button id="index-restaurants" type="button">Show your Restaurants</button>
+  <button id="index-restaurants" class="btn btn-primary btn-lg"  type="submit">Show your Restaurants</button>
 
 <form id="show-restaurant">
-<b>Find a Restaurant</b> <input placeholder="Find A Restaurant" type="text" name="restaurant[_id]">
-<button type="submit">Submit</button>
+  <b>Find a Restaurant</b>
+  <input placeholder="Find A Restaurant" type="text" name="restaurant[_id]">
+  <button class="btn btn-primary btn-lg"  type="submit">Find one Restaurant</button>
 </form>
 
-  <form id="delete-restaurant">
-    <b>Delete a Restaurant</b> <input placeholder="Delete a Restaurant" type="text" name="restaurant[_id]">
-    <button type="submit">Submit</button>
-  </form>
+<form id="delete-restaurant">
+  <b>Delete a Restaurant</b>
+  <input placeholder="Delete a Restaurant" type="text" name="restaurant[_id]">
+  <button class="btn btn-primary btn-lg"  type="submit">Delete a Restaurant</button>
+</form>
 
 <form id="update-restaurant">
-  <b>Update a Restaurant</b> <input placeholder="Update by ID" type="text" name="restaurant[_id]">
+  <b>Update a Restaurant</b>
+  <input placeholder="Update by ID" type="text" name="restaurant[_id]">
   <input placeholder="New Name" type="text" name="restaurant[name]">
   <input placeholder="New Cuisine" type="text" name="restaurant[cuisine]">
   <input placeholder="New Location" type="text" name="restaurant[location]">
-  <input placeholder="New Price Range" type="text" name="restaurant[price]">
-  <button type="submit">Submit</button>
+  <button class="btn btn-primary btn-lg"  type="submit">Update a Restaurant</button>
+</form>
+
+<form id="write-review">
+  <b>Write a Review</b>
+  <input placeholder="Restaurant ID" type="text" name="review[restaurantId]">
+  <input placeholder="Description" type="text" name="review[description]">
+  <input placeholder="Favorite Dish" type="text" name="review[favoriteDish]">
+  <input placeholder="Price Range" type="text" name="review[price]">
+  <input placeholder="Value 1-10" type="text" name="review[value]">
+  <button class="btn btn-primary btn-lg"  type="submit">Write a Review</button>
+</form>
+
+<form id="delete-review">
+  <b>Delete a Review</b>
+  <input placeholder="Restaurant ID" type="text" name="restaurant[restaurantId]">
+  <input placeholder="Review ID" type="text" name="review[reviewId]">
+  <button class="btn btn-primary btn-lg"  type="submit">Delete a Review</button>
+</form>
+
+<form id="update-review">
+  <b>Update a Review</b>
+  <input placeholder="Restaurant ID" type="text" name="restaurant[restaurantId]">
+  <input placeholder="Review ID" type="text" name="review[reviewId]">
+  <input placeholder="New description" type="text" name="review[description]">
+  <input placeholder="New Favorite Dish" type="text" name="review[favoriteDish]">
+  <input placeholder="New Price Range" type="text" name="review[price]">
+  <input placeholder="New Value 1-10" type="text" name="review[value]">
+  <button class="btn btn-primary btn-lg"  type="submit">Update a Review</button>
 </form>
 
 </div>

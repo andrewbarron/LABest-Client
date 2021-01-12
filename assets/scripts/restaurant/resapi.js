@@ -33,7 +33,7 @@ const showOne = function (data) {
   })
 }
 
-const deleteOne = function (data) {
+const deleteRestaurant = function (data) {
   return $.ajax({
     url: config.apiUrl + '/restaurants/' + data.restaurant._id,
     method: 'DELETE',
@@ -54,10 +54,37 @@ const updateRestaurant = function (data) {
   })
 }
 
+const createReview = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/reviews',
+    method: 'POST',
+    data: data
+  })
+}
+
+const deleteReview = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/reviews/' + data.review.reviewId,
+    method: 'DELETE',
+    data: data
+  })
+}
+
+const updateReview = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/reviews/' + data.review.reviewId,
+    method: 'PATCH',
+    data: data
+  })
+}
+
 module.exports = {
   createRestaurant,
   indexAll,
   showOne,
-  deleteOne,
-  updateRestaurant
+  deleteRestaurant,
+  updateRestaurant,
+  createReview,
+  deleteReview,
+  updateReview
 }

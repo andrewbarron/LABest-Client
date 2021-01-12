@@ -1,21 +1,23 @@
 // const store = require('./../store')
 
 const createSuccess = function (response) {
-  console.log(response)
+  $('#current-page').text('Restaurant Created.')
   $('#message').empty()
   const resInfo = response.restaurant
-  $('#current-page').text('Here are all Restaurant Created! Take a look')
-  const list = document.createElement('ul')
-  const fragment = document.createDocumentFragment()
-  $(resInfo).each(function (index, currentRes) {
-    const li = document.createElement('li')
-    li.textContent = `ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location} Price Range: ${currentRes.price} Owned By: ${currentRes.owner}`
-    fragment.appendChild(li)
-  })
-  list.appendChild(fragment)
-  const app = document.querySelector('#message')
-  app.appendChild(list)
+  $('#message').text(`ID: ${resInfo._id} Name: ${resInfo.name} Cuisine Type: ${resInfo.cuisine} Location: ${resInfo.location} Created by(owner): ${resInfo.owner.email}`)
   $('form').trigger('reset')
+  // const list = document.createElement('ul')
+  // const fragment = document.createDocumentFragment()
+  // const li = document.createElement('li')
+  // li.textContent = `ID: ${resInfo._id} Name: ${resInfo.name} Cuisine Type: ${resInfo.cuisine} Location: ${resInfo.location} Created by: ${resInfo.owner}`
+  // // $(resInfo).each(function (index, currentRes) {
+  // //   const li = document.createElement('li')
+  // //   li.textContent = `ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location} Created by: ${currentRes.owner}`
+  // //   fragment.appendChild(li)
+  // // })
+  // list.appendChild(fragment)
+  // const app = document.querySelector('#message')
+  // app.appendChild(list)
 }
 
 const createFailure = function (response) {
@@ -25,15 +27,13 @@ const createFailure = function (response) {
 }
 
 const indexSuccess = function (response) {
-  console.log(response)
-  $('#message').empty()
   const allRestaurants = response.restaurant
   $('#current-page').text(`Here are all ${allRestaurants.length} of your Restaurants!`)
   const list = document.createElement('ul')
   const fragment = document.createDocumentFragment()
   $(allRestaurants).each(function (index, currentRes) {
     const li = document.createElement('li')
-    li.textContent = `ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location} Price Range: ${currentRes.price} Owned By: ${currentRes.owner}`
+    li.textContent = `ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location} Created by: ${currentRes.owner.email}`
     fragment.appendChild(li)
   })
   list.appendChild(fragment)
@@ -55,7 +55,7 @@ const showSuccess = function (response) {
   const fragment = document.createDocumentFragment()
   $(resInfo).each(function (index, currentRes) {
     const li = document.createElement('li')
-    li.textContent = `ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location} Price Range: ${currentRes.price} Owned By: ${currentRes.owner}`
+    li.textContent = `ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location} Created by: ${currentRes.owner.email}`
     fragment.appendChild(li)
   })
   list.appendChild(fragment)
@@ -70,7 +70,7 @@ const showError = function (response) {
   $('form').trigger('reset')
 }
 
-const deleteSuccess = function () {
+const deleteRestaurantSuccess = function () {
   $('#message').empty()
   $('#current-page').text('We deleted the Restaurant :(')
   $('form').trigger('reset')
@@ -83,23 +83,34 @@ const error = function (errorMessage) {
 }
 
 const updateSuccess = function (response) {
-  console.log(response)
+  $('#current-page').text('Restaurant Updated.')
   $('#message').empty()
   const resInfo = response.restaurant
-  $('#current-page').text('Nice! Here\'s that New Restaurant info')
-  const list = document.createElement('ul')
-  const fragment = document.createDocumentFragment()
-  $(resInfo).each(function (index, currentRes) {
-    const li = document.createElement('li')
-    li.textContent = `ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location} Price Range: ${currentRes.price} Owned By: ${currentRes.owner}`
-    fragment.appendChild(li)
-  })
-  list.appendChild(fragment)
-  const app = document.querySelector('#message')
-  app.appendChild(list)
+  $('#message').text(`ID: ${resInfo._id} New Name: ${resInfo.name} New Cuisine Type: ${resInfo.cuisine} New Location: ${resInfo.location} Created by: ${resInfo.owner.email}`)
   $('form').trigger('reset')
 }
 
+const createReviewSuccess = function (response) {
+  $('#message').empty()
+  $('#current-page').text(`Here is the review you created for ${response.restaurant.name}:`)
+  const revData = response.restaurant.reviews
+  const currentReview = revData[revData.length - 1]
+  console.log(currentReview)
+  $('#message').text(`Review ID: ${currentReview._id} Description: ${currentReview.description} Favorite Dish: ${currentReview.favoriteDish} Price: ${currentReview.price} Value: ${currentReview.value}`)
+  $('form').trigger('reset')
+}
+
+const deleteReviewSuccess = function () {
+  $('#message').empty()
+  $('#current-page').text('Review is gone.')
+  $('form').trigger('reset')
+}
+
+const updateReviewSuccess = function () {
+  $('#message').empty()
+  $('#current-page').text('Review is updated.')
+  $('form').trigger('reset')
+}
 module.exports = {
   createSuccess,
   createFailure,
@@ -107,7 +118,10 @@ module.exports = {
   indexError,
   showSuccess,
   showError,
-  deleteSuccess,
+  deleteRestaurantSuccess,
   updateSuccess,
+  createReviewSuccess,
+  deleteReviewSuccess,
+  updateReviewSuccess,
   error
 }

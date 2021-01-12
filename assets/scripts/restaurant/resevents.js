@@ -23,21 +23,20 @@ const onShow = function (event) {
   const form = event.target
   const data = getFormFields(form)
   api.showOne(data)
-    .then()
     .then(ui.showSuccess)
     .catch(ui.error)
 }
 
-const onDelete = function (event) {
+const onDeleteRestaurant = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  api.deleteOne(data)
-    .then(ui.deleteSuccess)
+  api.deleteRestaurant(data)
+    .then(ui.deleteRestaurantSuccess)
     .catch(ui.error)
 }
 
-const onUpdate = function (event) {
+const onUpdateRestaurant = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
@@ -45,10 +44,41 @@ const onUpdate = function (event) {
     .then(ui.updateSuccess)
     .catch(ui.error)
 }
+const onCreateReview = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  api.createReview(data)
+    .then(ui.createReviewSuccess)
+    .catch(ui.error)
+}
+
+const onDeleteReview = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  api.deleteReview(data)
+    .then(ui.deleteReviewSuccess)
+    .catch(ui.error)
+}
+
+const onUpdateReview = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
+  api.updateReview(data)
+    .then(ui.updateReviewSuccess)
+    .catch(ui.error)
+}
+
 module.exports = {
   onCreateRestaurant,
   onIndex,
   onShow,
-  onDelete,
-  onUpdate
+  onDeleteRestaurant,
+  onUpdateRestaurant,
+  onCreateReview,
+  onDeleteReview,
+  onUpdateReview
 }
