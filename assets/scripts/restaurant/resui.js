@@ -36,7 +36,7 @@ const indexSuccess = function (response) {
   const fragment = document.createDocumentFragment()
   $(allRestaurants).each(function (index, currentRes) {
     const li = document.createElement('li')
-    li.textContent = `Restaurant ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location}  Latest Review: ID: ${currentRes.reviews[0]._id} Description: ${currentRes.reviews[0].description} Favorite Dish: ${currentRes.reviews[0].favoriteDish} Price Range: ${currentRes.reviews[0].price} Value (1-10): ${currentRes.reviews[0].value}`
+    li.textContent = `Restaurant ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location}`
     fragment.appendChild(li)
   })
   list.appendChild(fragment)
@@ -50,22 +50,22 @@ const indexError = function (response) {
 }
 
 const showSuccess = function (response) {
+  console.log(response)
   $('#message').empty()
   $('#show-restaurant').hide()
   $('form').trigger('reset')
   $('#current-page').text('Order up! Here is that restaurant')
-  const resInfo = response.restaurant
-  const list = document.createElement('ul')
-  const fragment = document.createDocumentFragment()
-  $(resInfo).each(function (index, currentRes) {
-    const li = document.createElement('li')
-    li.textContent = `ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location} Created by: ${currentRes.owner.email} `
-    //  Latest Review: ID: ${currentRes.reviews[0]._id} Description: ${currentRes.reviews[0].description} Favorite Dish: ${currentRes.reviews[0].favoriteDish} Price Range: ${currentRes.reviews[0].price} Value (1-10): ${currentRes.reviews[0].value}
-    fragment.appendChild(li)
-  })
-  list.appendChild(fragment)
-  const app = document.querySelector('#message')
-  app.appendChild(list)
+  // const resInfo = response.restaurant
+  // const list = document.createElement('ul')
+  // const fragment = document.createDocumentFragment()
+  // $(resInfo).each(function (index, currentRes) {
+  //   const li = document.createElement('li')
+  //   li.textContent = `ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location} Created by: ${currentRes.owner.email} Latest Review: ID: ${currentRes.reviews[0]._id} Description: ${currentRes.reviews[0].description} Favorite Dish: ${currentRes.reviews[0].favoriteDish} Price Range: ${currentRes.reviews[0].price} Value (1-10): ${currentRes.reviews[0].value} `
+  //   fragment.appendChild(li)
+  // })
+  // list.appendChild(fragment)
+  // const app = document.querySelector('#message')
+  // app.appendChild(list)
 }
 
 const showError = function (response) {

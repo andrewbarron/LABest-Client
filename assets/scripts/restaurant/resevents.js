@@ -13,7 +13,11 @@ const onCreateRestaurant = function (event) {
 }
 
 const onIndex = function (event) {
-  api.indexAll()
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
+  api.indexAll(data)
     .then(ui.indexSuccess)
     .catch(ui.error)
 }
