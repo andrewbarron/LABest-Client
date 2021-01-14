@@ -7,18 +7,6 @@ const createSuccess = function (response) {
   const resInfo = response.restaurant
   $('#message').text(`ID: ${resInfo._id} Name: ${resInfo.name} Cuisine Type: ${resInfo.cuisine} Location: ${resInfo.location} Created by(owner): ${resInfo.owner.email}`)
   $('form').trigger('reset')
-  // const list = document.createElement('ul')
-  // const fragment = document.createDocumentFragment()
-  // const li = document.createElement('li')
-  // li.textContent = `ID: ${resInfo._id} Name: ${resInfo.name} Cuisine Type: ${resInfo.cuisine} Location: ${resInfo.location} Created by: ${resInfo.owner}`
-  // // $(resInfo).each(function (index, currentRes) {
-  // //   const li = document.createElement('li')
-  // //   li.textContent = `ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location} Created by: ${currentRes.owner}`
-  // //   fragment.appendChild(li)
-  // // })
-  // list.appendChild(fragment)
-  // const app = document.querySelector('#message')
-  // app.appendChild(list)
 }
 
 const createFailure = function (response) {
@@ -50,22 +38,12 @@ const indexError = function (response) {
 }
 
 const showSuccess = function (response) {
-  console.log(response)
   $('#message').empty()
   $('#show-restaurant').hide()
   $('form').trigger('reset')
   $('#current-page').text('Order up! Here is that restaurant')
-  // const resInfo = response.restaurant
-  // const list = document.createElement('ul')
-  // const fragment = document.createDocumentFragment()
-  // $(resInfo).each(function (index, currentRes) {
-  //   const li = document.createElement('li')
-  //   li.textContent = `ID: ${currentRes._id} Name: ${currentRes.name} Cuisine Type: ${currentRes.cuisine} Location: ${currentRes.location} Created by: ${currentRes.owner.email} Latest Review: ID: ${currentRes.reviews[0]._id} Description: ${currentRes.reviews[0].description} Favorite Dish: ${currentRes.reviews[0].favoriteDish} Price Range: ${currentRes.reviews[0].price} Value (1-10): ${currentRes.reviews[0].value} `
-  //   fragment.appendChild(li)
-  // })
-  // list.appendChild(fragment)
-  // const app = document.querySelector('#message')
-  // app.appendChild(list)
+  const resInfo = response.restaurant
+  $('#message').text(`ID: ${resInfo._id} Name: ${resInfo.name} Cuisine Type: ${resInfo.cuisine} Location: ${resInfo.location} Created by(owner): ${resInfo.owner.email}`)
 }
 
 const showError = function (response) {
@@ -116,10 +94,11 @@ const deleteReviewSuccess = function () {
 
 const updateReviewSuccess = function (response) {
   $('#message').empty()
-  $('#current-page').text('Review is updated.')
+  $('#current-page').text('Here is that new review.')
   $('#update-review').hide()
   $('form').trigger('reset')
-  console.log(response)
+  const revData = response.review
+  $('#message').text(`Review ID: ${revData.reviewId} Description: ${revData.description} Favorite Dish: ${revData.favoriteDish} Price: ${revData.price} Value: ${revData.value}`)
 }
 
 $(document).ready(function () {
