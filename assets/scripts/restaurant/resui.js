@@ -120,9 +120,6 @@ const updateReviewSuccess = function (response) {
   $('#update-review').hide()
   $('form').trigger('reset')
   console.log(response)
-  const currentReview = response.review
-  const revData = currentReview[currentReview.length - 1]
-  $('#message').text(`Review ID: ${revData._id} Description: ${revData.description} Favorite Dish: ${revData.favoriteDish} Price: ${revData.price} Value: ${revData.value}`)
 }
 
 $(document).ready(function () {

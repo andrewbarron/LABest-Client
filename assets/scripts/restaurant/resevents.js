@@ -71,7 +71,6 @@ const onUpdateReview = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
   api.updateReview(data)
     .then(ui.updateReviewSuccess)
     .catch(ui.error)

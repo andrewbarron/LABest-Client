@@ -23,10 +23,7 @@ const indexAll = function () {
 const showOne = function (data) {
   return $.ajax({
     url: config.apiUrl + '/restaurants/' + data.restaurant._id,
-    method: 'GET',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    }
+    method: 'GET'
   })
 }
 
