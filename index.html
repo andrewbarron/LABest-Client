@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Restaurant Tracker</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+<h1>LA's Best Food</h1>
+<div class="container">
+<a id="current-page"></a>
+</div>
+<p id="message"></p>
+
+<div class="unauth">
+<section class="contain">
+<div class="left-half">
+<form id="sign-up">
+  <div class="input-group">
+<input type="text" class="form-control" placeholder="Enter Email Here" name="credentials[email]" aria-describedby="username">
+  </div>
+  <div class="input-group">
+<input type="password" class="form-control" placeholder="Enter Password Here" name="credentials[password]" aria-describedby="password">
+  </div>
+  <div class="input-group">
+<input type="password" class="form-control" placeholder="Confirm Password Here" name="credentials[password_confirmation]" aria-describedby="passwordconfirm">
+</div>
+<div class="container">
+<button class="btn btn-primary btn-lg" id="signUpButton" type="submit">Sign Up</button>
+</div>
+</form>
+</div>
+<div class="right-half">
+<form id="sign-in">
+<div class="input-group">
+<input type="text" class="form-control" placeholder="Enter Email Here" name="credentials[email]" aria-describedby="username">
+  </div>
+<div class="input-group">
+<input type="password" class="form-control" placeholder="Enter Password Here" name="credentials[password]" aria-describedby="password">
+</div>
+<div class="container">
+<button class="btn btn-primary btn-lg" id="signInButton" type="submit">Sign In</button>
+</div>
+</form>
+</div>
+</section>
+</div>
+<div class="auth">
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a type="button" class="nav-link active" id="createRes">Create a Restaurant</a>
+    <form id="create-restaurant">
+      <input placeholder="Name" type="text" name="restaurant[name]">
+      <input placeholder="Cuisine Type" type="text" name="restaurant[cuisine]">
+      <input placeholder="Location" type="text" name="restaurant[location]">
+      <button class="btn btn-primary btn-lg"  type="submit">Create</button>
+    </form>
+  </li>
+
+  <li class="nav-item">
+      <a class="nav-link active" type="submit" href="#" id="index-restaurants">See all Restaurants</a>
+    </li>
+</ul>
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a type="button" class="nav-link active" id="seeARestaurant">Find a Restaurant</a>
+  <form id="show-restaurant">
+    <input placeholder="Restaurant ID" type="text" name="restaurant[_id]">
+    <button type="submit">Find</button>
+  </form>
+  </li>
+
+  <li class="nav-item">
+      <a class="nav-link active" href="#" id="deleteARes">Delete a Restaurant</a>
+  <form id="delete-restaurant">
+    <input placeholder="Restaurant ID" type="text" name="restaurant[_id]">
+    <button class="btn btn-primary btn-lg"  type="submit">Delete</button>
+  </form>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link active" href="#" id="updateARes">Update a Restaurant</a>
+<form id="update-restaurant">
+  <input placeholder="Restaurant ID" type="text" name="restaurant[_id]">
+  <input placeholder="New Name" type="text" name="restaurant[name]">
+  <input placeholder="New Cuisine" type="text" name="restaurant[cuisine]">
+  <input placeholder="New Location" type="text" name="restaurant[location]">
+  <button class="btn btn-primary btn-lg"  type="submit">Update</button>
+</form>
+</li>
+</ul>
+
+<ul class="nav justify-content-center">
+<li class="nav-item">
+  <a type="button" class="nav-link active" id="showpass">Change Password</a>
+<form id="change-password">
+  <input placeholder="old password" type="password" name="passwords[old]">
+  <input placeholder="new password" type="password" name="passwords[new]">
+  <button type="submit">Submit</button>
+</form>
+</li>
+    <li class="nav-item">
+        <a class="nav-link active" type="submit" href="#" id="sign-out">Sign Out</a>
+      </li>
+</ul>
+
+<ul class="nav justify-content-center">
+
+  <li class="nav-item">
+    <a type="button" class="nav-link active" id="writeReview">Write a Review</a>
+    <form id="write-review">
+      <input placeholder="Restaurant ID" type="text" name="review[restaurantId]">
+      <input placeholder="Description" type="text" name="review[description]">
+      <input placeholder="Favorite Dish" type="text" name="review[favoriteDish]">
+      <input placeholder="Price Range" type="text" name="review[price]">
+      <input placeholder="Value 1-10" type="text" name="review[value]">
+      <button class="btn btn-primary btn-lg"  type="submit">Create Review</button>
+    </form>
+  </li>
+
+  <li class="nav-item">
+    <a type="button" class="nav-link active" id="updateReview">Update a Review</a>
+    <form id="update-review">
+      <input placeholder="Restaurant ID" type="text" name="restaurant[restaurantId]">
+      <input placeholder="Review ID" type="text" name="review[reviewId]">
+      <input placeholder="New description" type="text" name="review[description]">
+      <input placeholder="New Favorite Dish" type="text" name="review[favoriteDish]">
+      <input placeholder="New Price Range" type="text" name="review[price]">
+      <input placeholder="New Value 1-10" type="text" name="review[value]">
+      <button class="btn btn-primary btn-lg"  type="submit">Update Review</button>
+    </form>
+  </li>
+
+  <li class="nav-item">
+    <a type="button" class="nav-link active" id="deleteReview">Delete a Review</a>
+    <form id="delete-review">
+      <b>Delete a Review</b>
+      <input placeholder="Restaurant ID" type="text" name="restaurant[restaurantId]">
+      <input placeholder="Review ID" type="text" name="review[reviewId]">
+      <button class="btn btn-primary btn-lg"  type="submit">Delete a Review</button>
+    </form>
+  </li>
+</ul>
+</div>
+    </body>
+</html>
